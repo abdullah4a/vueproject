@@ -8,6 +8,7 @@
         <header class="card-header">
           <p class="card-header-title">heroes list</p>
         </header>
+        <ul class="list is-hoverable"></ul>
       </div>
     </div>
     <div class="columns">
