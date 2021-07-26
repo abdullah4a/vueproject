@@ -13,7 +13,9 @@
     <div class="columns">
       <div class="column is-3">
         <header class="card-header">
-          <p class="card-header-title">{{ selectedHero.firstName }}</p>
+          <p class="card-header-title">
+            {{ selectedHero.firstName + ' ' + selectedHero.lastName }}
+          </p>
         </header>
         <div class="card-content">
           <div class="content">
@@ -69,25 +71,25 @@ export default {
         {
           id: 10,
           firstName: 'Ella',
-          lastName: 'Papa',
+          lastName: 'Wastson',
           description: 'fashionista',
         },
         {
           id: 20,
           firstName: 'Madelyn',
-          lastName: 'Papa',
+          lastName: 'Barian',
           description: 'the cat whisperer',
         },
         {
           id: 30,
           firstName: 'Haley',
-          lastName: 'Papa',
+          lastName: 'May',
           description: 'pen wielder',
         },
         {
           id: 40,
           firstName: 'Landon',
-          lastName: 'Papa',
+          lastName: 'Laz',
           description: 'arc trooper',
         },
       ],
