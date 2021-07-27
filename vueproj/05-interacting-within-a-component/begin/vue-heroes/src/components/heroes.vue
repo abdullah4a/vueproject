@@ -113,7 +113,7 @@ export default {
   name: 'Heroes',
   data() {
     return {
-      heroes: ourHeroes,
+      heroes: [],
       selectedHero: undefined,
       message: '',
     };
@@ -123,8 +123,21 @@ export default {
       return `${this.selectedHero.firstName} ${this.selectedHero.lastName}`;
     },
   },
-
+  created() {
+    this.Loadheroes();
+  },
   methods: {
+    async Getheroes() {
+      return new Promise(resolve => {
+        setTimeout(() => resolve(ourHeroes), 1500);
+      });
+    },
+    async Loadheroes() {
+      this.heroes = [];
+      this.message = 'loading heroes, please wait...';
+      this.heroes = await this.Getheroes();
+      this.message = '';
+    },
     handleTheCapes(newValue) {
       const value = parseInt(newValue, 10);
       switch (value) {
