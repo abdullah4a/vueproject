@@ -45,6 +45,17 @@
               />
             </div>
             <div class="field">
+              <label for="show" class="checkbox"
+                >Show More
+                <input
+                  type="checkbox"
+                  class="is-primary"
+                  id="show"
+                  v-model="ShowMore"
+                />
+              </label>
+            </div>
+            <div class="field" v-show="ShowMore">
               <label class="label" for="lastName">last name</label>
               <input
                 class="input"
@@ -52,7 +63,7 @@
                 v-model="selectedHero.lastName"
               />
             </div>
-            <div class="field">
+            <div class="field" v-show="ShowMore">
               <label class="label" for="description">description</label>
               <input
                 class="input"
@@ -73,6 +84,7 @@ export default {
   data() {
     return {
       selectedHero: undefined,
+      ShowMore: false,
       heroes: [
         {
           id: 10,
