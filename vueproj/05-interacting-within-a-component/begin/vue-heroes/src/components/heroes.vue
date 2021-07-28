@@ -61,6 +61,34 @@
                   v-model="selectedHero.description"
                 />
               </div>
+              <div class="field">
+                <label class="label" for="originDate">origin date</label>
+                <input
+                  type="date"
+                  class="input"
+                  id="originDate"
+                  v-model="selectedHero.originDate"
+                />
+                <p class="comment">
+                  My Origin story began on
+                  {{ selectedHero.originDate | shortdate }}
+                </p>
+              </div>
+              <div class="field">
+                <label class="label" for="CapeCounter">cape counter</label>
+                <input
+                  class="input"
+                  id="CapeCounter"
+                  type="nummber"
+                  v-model="selectedHero.CapeCounter"
+                />
+              </div>
+              <div class="field">
+                <label class="label" for="capeMessage">cape message</label>
+                <label class="input" name="capeMessage">{{
+                  capeMessage
+                }}</label>
+              </div>
             </div>
           </div>
           <footer class="card-footer">
@@ -83,29 +111,40 @@
 </template>
 
 <script>
+import { format } from 'date-fns';
+const inputDateFormat = 'YYYY-MM-DD';
+const displayFormat = 'MMM DD, YYYY';
 const ourHeroes = [
   {
     id: 10,
     firstName: 'Ella',
     lastName: 'Papa',
+    CapeCounter: 1,
+    originDate: format(new Date(1999, 4, 1), inputDateFormat),
     description: 'fashionista',
   },
   {
     id: 20,
     firstName: 'Madelyn',
     lastName: 'Papa',
+    CapeCounter: 3,
+    originDate: format(new Date(1999, 5, 29), inputDateFormat),
     description: 'the cat whisperer',
   },
   {
     id: 30,
     firstName: 'Haley',
     lastName: 'Papa',
+    CapeCounter: 2,
+    originDate: format(new Date(2000, 3, 11), inputDateFormat),
     description: 'pen wielder',
   },
   {
     id: 40,
     firstName: 'Landon',
     lastName: 'Papa',
+    CapeCounter: 0,
+    originDate: format(new Date(1996, 2, 1), inputDateFormat),
     description: 'arc trooper',
   },
 ];
@@ -116,6 +155,7 @@ export default {
       heroes: [],
       selectedHero: undefined,
       message: '',
+      capeMessage: '',
     };
   },
   computed: {
@@ -165,6 +205,22 @@ export default {
     },
     selectHero(hero) {
       this.selectedHero = hero;
+    },
+  },
+  watch: {
+    'selectedHero.CapeCounter': {
+      immediate: true,
+      handler(newValue, oldValue) {
+        console.log(
+          `Watcher evaluated. Old Value = ${oldValue} and New Value=${newValue}`,
+        );
+        this.handleTheCapes(newValue);
+      },
+    },
+  },
+  filters: {
+    shortdate: function(value) {
+      return format(value, displayFormat);
     },
   },
 };
