@@ -6,6 +6,8 @@
       <p>
         by
         <a href="http://twitter.com/john_papa">John Papa</a>
+        redesign By
+        <a href="http://twitter.com/abdullahiqbal4a">Abdullah Iqbal</a>
       </p>
       <br />
       <h3 class="title sub-title">Source Code</h3>
