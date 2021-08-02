@@ -3,7 +3,7 @@
     {
       "id": 10,
       "firstName": "Ella",
-      "lastName": "Papa",
+      "lastName": "papa",
       "capeCounter": 1,
       "originDate": "1996-06-06",
       "description": "fashionista"
@@ -22,7 +22,7 @@
       "lastName": "Papa",
       "capeCounter": 2,
       "originDate": "09/01/1999",
-      "description": "pen wielder"
+      "description": "Graduate"
     },
     {
       "id": 40,
@@ -30,7 +30,7 @@
       "lastName": "Papa",
       "capeCounter": 0,
       "originDate": "10/01/2000",
-      "description": "arc trooper"
+      "description": "May be "
     }
   ],
   "villains": [
